@@ -45,7 +45,7 @@ end
 clear neighbour_offsets temp1 temp2
 rjk = rjk(:, all_member);
 clear all_member
-grad = -(((rjk - 1) .* (gamma .* abs(rjk - 1) + rjk + 3)) ./ (rjk + 1 + gamma .* abs(rjk - 1)).^2) * single(weights);
+grad = (((rjk - 1) .* (gamma .* abs(rjk - 1) + rjk + 3)) ./ (rjk + 1 + gamma .* abs(rjk - 1)).^2) * single(weights);
 grad(isinf(grad)) = 0;
 grad(isnan(grad)) = 0;
 end
